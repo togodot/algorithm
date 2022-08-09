@@ -1,0 +1,27 @@
+# 2476번: 주사위 게임
+
+T = int(input())
+rewardList = []
+
+for i in range(T):
+    
+    A, B, C = map(int, input().split())
+
+    if A == B and A == C:
+        reward = 10000 + (A*1000)
+        rewardList.append(reward)
+        continue
+    elif A == B or A == C:
+        reward = 1000 + (A*100)
+        rewardList.append(reward)
+        continue
+    elif B == C:
+        reward = 1000 + (B*100)
+        rewardList.append(reward)
+        continue
+    else:
+        reward = max(A, B, C) * 100
+        rewardList.append(reward)
+
+answer = max(rewardList)
+print(answer)
